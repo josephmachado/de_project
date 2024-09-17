@@ -1,3 +1,4 @@
+import polars as pl
 from etl.bronze import customer, lineitem, nation, orders, region
 from etl.silver import dim_customer, fct_lineitem, fct_orders
 from etl.gold.obt import wide_lineitem, wide_orders
@@ -25,6 +26,18 @@ def create_customer_outreach_metrics():
     customer_outreach_metrics_df = customer_outreach_metrics.create_dataset(
         wide_lineitem_df, wide_orders_df
     )
+
+    # data quality checks
+    # check uniqueness
+    if (
+        customer_outreach_metrics_df.filter(
+            customer_outreach_metrics_df.select(pl.col("customer_key")).is_duplicated()
+        ).shape[0]
+        > 0
+    ):
+        raise Exception("Duplicate customer_keys")
+    # TODO: Check not nulls
+    # TODO: Check variance is less than 5%
 
     return customer_outreach_metrics_df
 
