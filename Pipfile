@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+polars = "*"
+cuallee = "*"
+pytest = "*"
+jupyterlab = "*"
+duckdb = "*"
+pyarrow = "*"
+black = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
