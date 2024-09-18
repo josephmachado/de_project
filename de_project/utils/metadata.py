@@ -1,7 +1,7 @@
 import json
 
 import sqlite3
-
+from datetime import datetime
 
 def get_latest_run_metrics():
     # Connect to SQLite database
@@ -39,13 +39,14 @@ def insert_run_metrics(curr_metrics):
     cursor = conn.cursor()
     curr_metrics_json = json.dumps(curr_metrics)
 
+    current_timestamp = datetime.now().strftime('%Y-%m-%d-%H-%M')
     # Insert data into the run_metadata table
     cursor.execute(
         """
         INSERT INTO run_metadata (run_id, metadata)
         VALUES (?, ?)
     """,
-        ("2024-09-15-12-00", curr_metrics_json),
+        (current_timestamp, curr_metrics_json),
     )
 
     # Commit the changes and close the connection
