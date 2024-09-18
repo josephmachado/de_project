@@ -1,6 +1,12 @@
+
+* [Build a data engineering project, with step-by-step instructions](#build-a-data-engineering-project-with-step-by-step-instructions)
+     * [Setup](#setup)
+          * [Option 1: Github codespaces (Recommended)](#option-1-github-codespaces-recommended)
+          * [Option 2: Run locally](#option-2-run-locally)
+
 # Build a data engineering project, with step-by-step instructions
 
-Code for the blog: **[Build data engineering projects with step-by-step instruction](https://www.startdataengineering.com/)**
+Code for the blog: **[Build data engineering projects with step-by-step instruction](https://www.startdataengineering.com/post/de-proj-step-by-step/)**
 
 ## Setup
 
