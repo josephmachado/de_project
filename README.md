@@ -7,6 +7,7 @@
 # Build a data engineering project, with step-by-step instructions
 
 Code for the blog: **[Build data engineering projects with step-by-step instruction](https://www.startdataengineering.com/post/de-proj-step-by-step/)**
+Live workshop at: **[Youtube live link](https://www.youtube.com/live/bfiOLwp1aWM?feature=share)**
 
 ## Setup
 
