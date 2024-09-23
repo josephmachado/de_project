@@ -41,7 +41,7 @@ def check_no_duplicates(customer_outreach_metrics_df):
 
 def check_variance(customer_outreach_metrics_df, perc_threshold=5):
     prev_metric = get_latest_run_metrics()
-    if prev_metric is None:
+    if prev_metric is None or len(prev_metric) == 0:
         return
     prev_metric['sum_avg_order_value'] = int(float(prev_metric['sum_avg_order_value']))
     curr_metric = json.loads(

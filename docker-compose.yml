@@ -23,6 +23,8 @@ x-airflow-common:
     - ./tests:/opt/airflow/tests
     - ./temp:/opt/airflow/temp
     - ./migrations:/opt/airflow/migrations
+    - ./tpch.db:/opt/airflow/tpch.db
+    - ./metadata.db:/opt/airflow/metadata.db
   user: "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-0}"
   depends_on:
     postgres:
