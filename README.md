@@ -17,11 +17,11 @@ Most data teams have their version of the 3-hop architecture. For example, dbt h
 
 **Tools used:**
 
-[<img src="https://raw.githubusercontent.com/pola-rs/polars-static/master/banner/polars_github_banner.svg" height="50" alt="Polars logo" />](https://pola.rs/)
-[<img src="./assets/images/docker.png" height="50" alt="Docker logo" />](https://www.docker.com/)
-[<img src="./assets/images/airflow.png" height="50" alt="logo" />](https://airflow.apache.org/)
-[<img src="./assets/images/pytest.png" height="50" alt="Pytest logo" />](https://docs.pytest.org/en/stable/)
-[<img src="./assets/images/duckdb.png" height="50" alt="DuckDB logo" />](https://duckdb.org/)
+1. [<img src="https://raw.githubusercontent.com/pola-rs/polars-static/master/banner/polars_github_banner.svg" height="50" alt="Polars logo" />](https://pola.rs/)
+2. [<img src="./assets/images/docker.png" height="50" alt="Docker logo" />](https://www.docker.com/)
+3. [<img src="./assets/images/airflow.png" height="50" alt="Apache Airflow logo" />](https://airflow.apache.org/)
+4. [<img src="./assets/images/pytest.png" height="50" alt="Pytest logo" />](https://docs.pytest.org/en/stable/)
+5. [<img src="./assets/images/duckdb.png" height="50" alt="DuckDB logo" />](https://duckdb.org/)
 
 ## Setup
 
