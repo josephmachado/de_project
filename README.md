@@ -9,6 +9,20 @@
 * Code for the blog: **[Build data engineering projects with step-by-step instruction](https://www.startdataengineering.com/post/de-proj-step-by-step/)**
 * Live workshop at: **[Youtube live link](https://www.youtube.com/live/bfiOLwp1aWM?feature=share)**
 
+## Architecture
+
+Most data teams have their version of the 3-hop architecture. For example, dbt has its own version (stage, intermediate, mart), and Spark has medallion (bronze, silver, gold) architecture.
+
+![Data Flow](./assets/images/dep-arch.png)
+
+**Tools used:**
+
+![Polars](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_logo_light.svg)
+![Docker](https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/docker.svg)
+![Airflow](https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/apacheairflow.svg)
+![Pytest](https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/pytest.svg)
+![DuckDB](https://duckdb.org/assets/brand/duckdb-widescreen.svg)
+
 ## Setup
 
 You have two options to run the exercises in this repo
