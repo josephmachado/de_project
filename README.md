@@ -9,6 +9,14 @@
 * Code for the blog: **[Build data engineering projects with step-by-step instruction](https://www.startdataengineering.com/post/de-proj-step-by-step/)**
 * Live workshop at: **[Youtube live link](https://www.youtube.com/live/bfiOLwp1aWM?feature=share)**
 
+## Data used 
+
+Let's assume we are working with a car part seller database (tpch). The data is available in a duckdb database. See the data model below:
+
+![TPCH data model](./assets/images/tpch_erd.png)
+
+We can create fake input data using the [create_input_data.py](https://github.com/josephmachado/de_project/blob/main/setup/create_input_data.py).
+
 ## Architecture
 
 Most data teams have their version of the 3-hop architecture. For example, dbt has its own version (stage, intermediate, mart), and Spark has medallion (bronze, silver, gold) architecture.
