@@ -17,11 +17,11 @@ Most data teams have their version of the 3-hop architecture. For example, dbt h
 
 **Tools used:**
 
-![Polars](https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_logo_light.svg)
-![Docker](https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/docker.svg)
-![Airflow](https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/apacheairflow.svg)
-![Pytest](https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/pytest.svg)
-![DuckDB](https://duckdb.org/assets/brand/duckdb-widescreen.svg)
+<img src="https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_logo_light.svg" alt="Polars" width="100"/>
+<img src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/docker.svg" alt="Docker" width="100"/>
+<img src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/apacheairflow.svg" alt="Airflow" width="100"/>
+<img src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/pytest.svg" alt="Pytest" width="100"/>
+<img src="https://duckdb.org/assets/brand/duckdb-widescreen.svg" alt="DuckDB" width="150"/>
 
 ## Setup
 
