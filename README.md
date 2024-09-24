@@ -1,5 +1,6 @@
-
 * [Build a data engineering project, with step-by-step instructions](#build-a-data-engineering-project-with-step-by-step-instructions)
+     * [Data used](#data-used)
+     * [Architecture](#architecture)
      * [Setup](#setup)
           * [Option 1: Github codespaces (Recommended)](#option-1-github-codespaces-recommended)
           * [Option 2: Run locally](#option-2-run-locally)
