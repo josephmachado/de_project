@@ -18,17 +18,10 @@ Most data teams have their version of the 3-hop architecture. For example, dbt h
 **Tools used:**
 
 [<img src="https://raw.githubusercontent.com/pola-rs/polars-static/master/banner/polars_github_banner.svg" height="50" alt="Polars logo" />](https://pola.rs/)
-![Docker](./assets/images/docker.png)
 [<img src="./assets/images/docker.png" height="50" alt="Docker logo" />](https://www.docker.com/)
-[<img src="https://www.jetbrains.com/company/brand/img/jetbrains_logo.png" height="50" alt="Polars logo" />](https://www.jetbrains.com)
-[<img src="https://www.jetbrains.com/company/brand/img/jetbrains_logo.png" height="50" alt="Polars logo" />](https://www.jetbrains.com)
-[<img src="https://www.jetbrains.com/company/brand/img/jetbrains_logo.png" height="50" alt="Polars logo" />](https://www.jetbrains.com)
-
-<img src="https://raw.githubusercontent.com/pola-rs/polars-static/master/logos/polars_logo_light.svg" alt="Polars" width="100"/>
-<img src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/docker.svg" alt="Docker" width="100"/>
-<img src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/apacheairflow.svg" alt="Airflow" width="100"/>
-<img src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/pytest.svg" alt="Pytest" width="100"/>
-<img src="https://duckdb.org/assets/brand/duckdb-widescreen.svg" alt="DuckDB" width="150"/>
+[<img src="./assets/images/airflow.png" height="50" alt="logo" />](https://airflow.apache.org/)
+[<img src="./assets/images/pytest.png" height="50" alt="Pytest logo" />](https://docs.pytest.org/en/stable/)
+[<img src="./assets/images/duckdb.png" height="50" alt="DuckDB logo" />](https://duckdb.org/)
 
 ## Setup
 
