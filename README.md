@@ -64,7 +64,7 @@ python -m pytest dags/tests/unit/test_dim_customer.py
 
 Steps:
 
-1. Clone this repo, cd into the cloned repo
+1. Clone this repo, cd into the cloned repo.
 2. Start a virtual env and install requirements.
 3. Start Jupyter lab and run the `setup-data-project.ipynb` notebook that goes over how to create a data pipeline.
 ```bash
