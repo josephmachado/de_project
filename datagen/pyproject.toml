@@ -1,0 +1,30 @@
+[project]
+name = "datagen"
+version = "0.1.0"
+description = "Realistic OLTP data generator for E-Commerce + Advertising platform"
+requires-python = ">=3.11"
+
+dependencies = [
+    "click>=8.1",
+    "rich>=13.0",
+    "mimesis>=18.0",
+    "numpy>=1.26",
+    "psycopg2-binary>=2.9",
+    "pydantic>=2.0",
+    "python-dateutil>=2.9",
+    "duckdb>=1.4.4",
+    "quarto-cli>=1.8.27",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-mock>=3.12",
+]
+
+[project.scripts]
+datagen = "datagen.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
