@@ -208,3 +208,5 @@ Footer
 *.pem
 .terraform/
 .terraform.lock.hcl
+
+airflow/dbt/my_project/metastore_db/*
