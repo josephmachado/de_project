@@ -1,0 +1,2 @@
+%load_ext sql 
+%config SqlMagic.style = '_DEPRECATED_DEFAULT'

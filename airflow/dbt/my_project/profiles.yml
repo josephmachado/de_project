@@ -1,0 +1,12 @@
+my_project:
+  target: dev
+  outputs:
+    dev:
+      type: spark
+      method: session
+      schema: default
+      host: localhost
+      server_side_parameters:
+        "spark.sql.warehouse.dir": "file:/home/airflow/spark-warehouse"
+        "javax.jdo.option.ConnectionURL": "jdbc:derby:;databaseName=/home/airflow/metastore_db;create=true"
+        "spark.sql.catalogImplementation": "hive"

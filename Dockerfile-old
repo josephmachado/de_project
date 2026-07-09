@@ -1,0 +1,92 @@
+FROM python:3.13-bookworm
+
+WORKDIR /home/airflow
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    ca-certificates \
+    openjdk-17-jdk \
+    wget \
+    make \
+    procps \
+    gcc \
+    g++ \
+    cmake \
+    pkg-config \
+    libssl-dev \
+    libzstd-dev \
+    libffi-dev \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Works with both arm and amd
+RUN ln -s $(ls -d /usr/lib/jvm/java-17-openjdk-* | grep -v current | head -1) \
+    /usr/lib/jvm/java-17-openjdk-current
+
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-current
+
+
+ENV PATH=$JAVA_HOME/bin:$PATH
+
+# Install Spark 
+ENV SPARK_VERSION=4.1.2
+ENV SPARK_HOME=/opt/spark
+ENV SPARK_MAJOR_VERSION=4.0
+ENV ICEBERG_VERSION=1.10.1
+
+# archive is throttled and slow
+# RUN wget -q https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.tgz && \ 
+
+# dlcdn link is faster but only keeps latest Spark releases; 
+RUN wget -q https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.tgz && \
+    tar -xzf spark-${SPARK_VERSION}-bin-hadoop3.tgz && \
+    mv spark-${SPARK_VERSION}-bin-hadoop3 ${SPARK_HOME} && \
+    rm spark-${SPARK_VERSION}-bin-hadoop3.tgz
+
+
+ENV PATH=$PATH:$SPARK_HOME/bin
+COPY ./spark_defaults.conf $SPARK_HOME/conf/spark-defaults.conf
+
+# Download Postgres connector
+RUN wget -q https://jdbc.postgresql.org/download/postgresql-42.7.9.jar \
+    -O $SPARK_HOME/jars/postgresql-42.7.9.jar
+
+# Download Iceberg 
+RUN curl https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-spark-runtime-${SPARK_MAJOR_VERSION}_2.13/${ICEBERG_VERSION}/iceberg-spark-runtime-${SPARK_MAJOR_VERSION}_2.13-${ICEBERG_VERSION}.jar -Lo $SPARK_HOME/jars/iceberg-spark-runtime-${SPARK_MAJOR_VERSION}_2.13-${ICEBERG_VERSION}.jar
+
+# Install uv
+ADD https://astral.sh/uv/install.sh /uv-installer.sh
+RUN sh /uv-installer.sh && rm /uv-installer.sh
+ENV PATH="/root/.local/bin/:$PATH"
+
+# Airflow environment variables
+ENV AIRFLOW_HOME=/home/airflow/airflow
+ENV AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=true
+ENV AIRFLOW__CORE__LOAD_EXAMPLES=false
+ENV AIRFLOW__CORE__FERNET_KEY=''
+ENV AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS=true
+ENV AIRFLOW__DAG_PROCESSOR__REFRESH_INTERVAL=3
+
+# Install Airflow
+ENV AIRFLOW_VERSION=3.1.3
+ENV PYTHON_VERSION=3.13
+ENV CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-no-providers-${PYTHON_VERSION}.txt"
+ENV PYTHONPATH="/home/airflow:${PYTHONPATH}"
+
+RUN uv venv /home/airflow/.venv
+RUN uv pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
+COPY ./requirements.lock /tmp/requirements.lock
+RUN uv pip install -r /tmp/requirements.lock
+#RUN uv pip install pyspark 'pyspark[sql]' ruff ipykernel jupyterlab ipython-sql psycopg2-binary prettytable pytest chispa soda-sparkdf altair vl-convert-python jupyterlab-code-formatter black isort jupyter-ai langchain-google-genai
+
+# Copy IPython startup scripts to enable SQL magic to connect to Postgres
+ENV DATABASE_URL="postgresql://dataengineer:datapipeline@postgres:5432/ecommerce"
+COPY ./ipython_scripts/startup/ /root/.ipython/profile_default/startup/
+
+
+COPY startup.sh /startup.sh
+RUN chmod +x /startup.sh
+
+ENV PATH="/home/airflow/.local/bin/:$PATH"
+
+CMD ["/startup.sh"]
